@@ -1,0 +1,24 @@
+.card-deck-standard.card-suit-spade {
+	color: black;
+}
+.card-deck-standard.card-suit-club {
+	color: black;
+}
+.card-deck-standard.card-suit-heart {
+	color: red;
+}
+.card-deck-standard.card-suit-diamond {
+	color: red;
+}
+.card-deck-fourcolor.card-suit-spade {
+	color: black;
+}
+.card-deck-fourcolor.card-suit-club {
+	color: green;
+}
+.card-deck-fourcolor.card-suit-heart {
+	color: red;
+}
+.card-deck-fourcolor.card-suit-diamond {
+	color: blue;
+}
