@@ -1,0 +1,135 @@
+.card-size-bridge {
+	width: 4.5em;
+	height: 7em;
+}
+
+.card-size-poker {
+	width: 5em;
+	height: 7em;
+}
+
+.card-boundary {
+	border-style: solid;
+	border-width: thin;
+	border-radius: 5%;
+	display: inline-block;
+	position: relative;
+}
+
+.card-boundary.card-visible {
+	border-color: DarkSlateGray  ;
+	background: white;
+}
+
+.card-boundary.card-hidden {
+	border-color: white;
+	background:
+		repeating-linear-gradient(
+			60deg,
+			transparent,
+			transparent 0.3em,
+			white 0.1em,
+			white 0.4em
+		), repeating-linear-gradient(
+			-60deg,
+			navy,
+			navy 0.3em,
+			white 0.1em,
+			white 0.4em
+		);
+}
+
+.card-label {
+	position: absolute;
+	text-align: center;
+	padding: 0.1em;
+	width: 1em;
+	letter-spacing: -0.15em;
+}
+
+.card-hidden .card-label {
+	visibility: hidden;
+}
+
+.card-center {
+	/*visibility: hidden;*/
+	border-radius: 5%;
+	position: absolute;
+	padding: 0.1em;
+	height: 5.5em;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+}
+
+.card-size-bridge .card-center {
+	width: 1.7em;
+}
+
+.card-size-poker .card-center {
+	width: 2em;
+}
+
+.card-style-face .card-center {
+	background: navajowhite;
+}
+
+.card-style-full .card-center-graphics {
+	position: absolute;
+	white-space: pre;
+	text-align: center;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	line-height: 125%
+}
+
+.card-style-minimal .card-center-graphics {
+	visibility: hidden;
+}
+
+.card-hidden .card-center {
+	visibility: hidden;
+}
+
+.card-label-top {
+	top: 0;
+}
+
+.card-label-bottom {
+	bottom: 0;
+	transform: rotate(180deg)
+}
+
+.card-label-left {
+	left: 0;
+}
+
+.card-label-right {
+	right: 0;
+}
+
+.card-deck-standard.card-suit-spade {
+	color: darkslategray;
+}
+.card-deck-standard.card-suit-club {
+	color: darkslategray;
+}
+.card-deck-standard.card-suit-heart {
+	color: orangered;
+}
+.card-deck-standard.card-suit-diamond {
+	color: orangered;
+}
+.card-deck-fourcolor.card-suit-spade {
+	color: darkslategray;
+}
+.card-deck-fourcolor.card-suit-club {
+	color: forestgreen;
+}
+.card-deck-fourcolor.card-suit-heart {
+	color: orangered;
+}
+.card-deck-fourcolor.card-suit-diamond {
+	color: royalblue;
+}

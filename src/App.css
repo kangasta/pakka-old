@@ -1,24 +1,24 @@
-.card-deck-standard.card-suit-spade {
-	color: black;
+.App {
+	bottom: 0;
+	height: 100%;
+	left: 0;
+	position: fixed;
+	right: 0;
+	top: 0;
+	background: seagreen;
 }
-.card-deck-standard.card-suit-club {
-	color: black;
+
+.app-center-container {
+	position: relative;
+	top: 50%;
+	transform: translate(0%,-50%);
+	align-content: center;
+	text-align: center;
+	font-size: 200%;
+	vertical-align: middle;
 }
-.card-deck-standard.card-suit-heart {
-	color: red;
-}
-.card-deck-standard.card-suit-diamond {
-	color: red;
-}
-.card-deck-fourcolor.card-suit-spade {
-	color: black;
-}
-.card-deck-fourcolor.card-suit-club {
-	color: green;
-}
-.card-deck-fourcolor.card-suit-heart {
-	color: red;
-}
-.card-deck-fourcolor.card-suit-diamond {
-	color: blue;
+
+.app-horizontally-center {
+	display:inline-block;
+	padding: 0.5em;
 }
