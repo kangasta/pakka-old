@@ -27,14 +27,14 @@
 		repeating-linear-gradient(
 			60deg,
 			transparent,
-			transparent 0.3em,
-			white 0.1em,
+			transparent 0.33em,
+			white 0.07em,
 			white 0.4em
 		), repeating-linear-gradient(
 			-60deg,
 			navy,
-			navy 0.3em,
-			white 0.1em,
+			navy 0.33em,
+			white 0.07em,
 			white 0.4em
 		);
 }
