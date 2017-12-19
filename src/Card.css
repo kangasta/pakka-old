@@ -8,7 +8,7 @@
 	height: 7em;
 }
 
-.card-boundary {
+.card {
 	border-style: solid;
 	border-width: thin;
 	border-radius: 0.25em;
@@ -16,12 +16,12 @@
 	position: relative;
 }
 
-.card-boundary.card-visible {
+.card.card-visible {
 	border-color: DarkSlateGray  ;
 	background: white;
 }
 
-.card-boundary.card-hidden {
+.card.card-hidden {
 	border-color: DarkSlateGray;
 	background:
 		repeating-linear-gradient(
@@ -39,7 +39,7 @@
 		);
 }
 
-.card-boundary.card-empty {
+.card.card-empty {
 	border-color: DarkSlateGray  ;
 	background: transparent;
 }

@@ -19,7 +19,7 @@ class Card extends Component {
 
 	render() {
 		return (
-			<div className={'card-boundary' +
+			<div className={'card' +
 							' card-size-' + (CardUtils.card_sizes.indexOf(this.props.size) !== -1 ? this.props.size : 'poker' ) +
 							' card-suit-' + CardUtils.toSuitName(this.props.number) +
 							' card-deck-' + (this.props.fourcolor ? 'fourcolor' : 'standard') +
