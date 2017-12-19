@@ -96,7 +96,7 @@ Card.defaultProps = {
 	size: 'poker',
 	number: 0,
 	fourcolor: false,
-	onClickCallback: ()=>{console.log('Clickety-click!');}
+	onClickCallback: ()=>true
 };
 
 Card.propTypes = {
