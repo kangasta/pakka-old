@@ -1,78 +1,75 @@
 import React, { Component } from 'react';
 import './App.css';
 import Card from './Card';
-import Deck from './Deck';
+//import Deck from './Deck';
 
 class App extends Component {
-	constructor() {
-		super();
+	cards = [];
+
+	constructor(props) {
+		super(props);
 		this.state = {
-			data: 'null',
+			'card_number': -1,
+			'cards_left': 52
 		};
 
-		const self = this;
-		if(typeof(EventSource) !== 'undefined') {
-			var source = new EventSource('http://localhost:8080/events/');
-			source.onmessage = function(msg) {
-				//console.log(self.toCardString(msg.data, true));
-				self.setState({data: msg.data});
-			};
-		} else {
-			this.state = {data: 'error: No event source support.'};
+		this.initDeck();
+		this.resetDeck = this.resetDeck.bind(this);
+		this.updateCard = this.updateCard.bind(this);
+	}
+
+	// https://stackoverflow.com/questions/6274339/how-can-i-shuffle-an-array
+	static shuffle(a) {
+		for (let i = a.length - 1; i > 0; i--) {
+			const j = Math.floor(Math.random() * (i + 1));
+			[a[i], a[j]] = [a[j], a[i]];
 		}
 	}
 
+	initDeck() {
+		for (var i = 0; i < 52; i++) {
+			this.cards.push(i);
+		}
+		App.shuffle(this.cards);
+	}
+
+	resetDeck() {
+		this.initDeck();
+		this.setState({'card_number': -1,'cards_left':52});
+	}
+
+	updateCard() {
+		if (this.state.card_number === -2) {
+			this.resetDeck();
+			return;
+		}
+		if (!this.cards.length) {
+			this.setState({'card_number': -2,'cards_left':0});
+			return;
+		}
+		this.setState({
+			'card_number': this.cards.pop(),
+			'cards_left':this.cards.length
+		});
+	}
+
 	render() {
+		console.log(this.state);
 		return (
 			<div className='App'>
 				<div className='app-center-container'>
-					<div className='app-deck-container app-horizontally-center'>
-						<Deck size='poker' />
-					</div>
-					<br/>
 					<div className='app-card-container app-horizontally-center'>
-						<Card size='poker' number={12} fourcolor={true}/>
+						<Card size='poker' number={this.state.card_number} fourcolor={true} onClickCallback={this.updateCard}/>
 					</div>
 				</div>
-				{/*<h1>sse-test</h1>
-				<h2>card</h2>
-				<h3>standard deck</h3>
-				<p className={'card-suit-' + this.toSuitName(this.state.data) + ' card-deck-standard'}>{this.toCardString(this.state.data)}</p>
-				<h3>fourcolor deck</h3>
-				<p className={'card-suit-' + this.toSuitName(this.state.data) + ' card-deck-fourcolor'}>{this.toCardString(this.state.data)}</p>
-				<h2>Card</h2>
-				<h3>standard deck</h3>
-				<Card size='poker' number={0}/>
-				<Card size='poker' number={18}/>
-				<Card size='poker' number={38}/>
-				<Card size='poker' number={45}/>
-				<Card size='poker' hidden={true}/>
-				<Card size='poker' number={-1}/>
-				<h3>fourcolor deck</h3>
-				<Card size='poker' number={0} fourcolor={true}/>
-				<Card size='poker' number={18} fourcolor={true}/>
-				<Card size='poker' number={38} fourcolor={true}/>
-				<Card size='poker' number={45} fourcolor={true}/>
-				<Card size='poker' hidden={true} fourcolor={true}/>
-				<Card size='poker' number={-1} fourcolor={true}/>
-				<h3>all values</h3>
-				<Card size='poker' number={0} fourcolor={true}/>
-				<Card size='poker' number={1} fourcolor={true}/>
-				<Card size='poker' number={2} fourcolor={true}/>
-				<Card size='poker' number={3} fourcolor={true}/>
-				<Card size='poker' number={4} fourcolor={true}/>
-				<Card size='poker' number={5} fourcolor={true}/>
-				<Card size='poker' number={6} fourcolor={true}/>
-				<Card size='poker' number={7} fourcolor={true}/>
-				<Card size='poker' number={8} fourcolor={true}/>
-				<Card size='poker' number={9} fourcolor={true}/>
-				<Card size='poker' number={10} fourcolor={true}/>
-				<Card size='poker' number={11} fourcolor={true}/>
-				<Card size='poker' number={12} fourcolor={true}/>
-				<h2>Deck</h2>
-				<Deck />*/}
 			</div>
 		);
+		/*
+		<br/>
+		<div className='app-deck-container app-horizontally-center'>
+			<Deck size='poker' />
+		</div>
+		*/
 	}
 }
 

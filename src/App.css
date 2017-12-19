@@ -14,8 +14,15 @@
 	transform: translate(0%,-50%);
 	align-content: center;
 	text-align: center;
-	font-size: 200%;
 	vertical-align: middle;
+}
+
+.app-card-container {
+	font-size: 200%;
+}
+
+.app-deck-container {
+	font-size: 200%;
 }
 
 .app-horizontally-center {

@@ -22,7 +22,7 @@
 }
 
 .card-boundary.card-hidden {
-	border-color: white;
+	border-color: DarkSlateGray;
 	background:
 		repeating-linear-gradient(
 			60deg,
@@ -39,12 +39,34 @@
 		);
 }
 
+.card-boundary.card-empty {
+	border-color: DarkSlateGray  ;
+	background: transparent;
+}
+
 .card-label {
 	position: absolute;
 	text-align: center;
 	padding: 0.1em;
 	width: 1em;
 	letter-spacing: -0.15em;
+}
+
+.card-label-top {
+	top: 0;
+}
+
+.card-label-bottom {
+	bottom: 0;
+	transform: rotate(180deg)
+}
+
+.card-label-left {
+	left: 0;
+}
+
+.card-label-right {
+	right: 0;
 }
 
 .card-hidden .card-label {
@@ -74,7 +96,13 @@
 	background: navajowhite;
 }
 
+.card-center-graphics {
+	visibility: hidden;
+}
+
+/*
 .card-style-full .card-center-graphics {
+	visibility: hidden;
 	position: absolute;
 	white-space: pre;
 	text-align: center;
@@ -87,26 +115,9 @@
 .card-style-minimal .card-center-graphics {
 	visibility: hidden;
 }
-
+*/
 .card-hidden .card-center {
 	visibility: hidden;
-}
-
-.card-label-top {
-	top: 0;
-}
-
-.card-label-bottom {
-	bottom: 0;
-	transform: rotate(180deg)
-}
-
-.card-label-left {
-	left: 0;
-}
-
-.card-label-right {
-	right: 0;
 }
 
 .card-deck-standard.card-suit-spade {

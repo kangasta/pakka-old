@@ -11,13 +11,6 @@ class Card extends Component {
 	static nums = ['A','2','3','4','5','6','7','8','9','T','J','Q','K'];
 	static card_sizes = ['bridge', 'poker'];
 
-	constructor(props) {
-		super(props);
-		this.state = {
-			'hidden': (this.props.hidden || this.props.number < 0)
-		};
-	}
-
 	static isFaceCard(i, ace_is_face_card=false, ten_is_face_card=false) {
 		var num_i = i % 13;
 		return num_i > 9 ||
@@ -62,16 +55,27 @@ class Card extends Component {
 		return ret_str;
 	}
 
+	getVisibilityStyle() {
+		switch (this.props.number) {
+		case -1:
+			return 'hidden';
+		case -2:
+			return 'empty';
+		default:
+			return 'visible';
+		}
+	}
+
+
 	render() {
 		return (
 			<div className={'card-boundary' +
 							' card-size-' + (Card.card_sizes.indexOf(this.props.size) !== -1 ? this.props.size : 'poker' ) +
 							' card-suit-' + Card.toSuitName(this.props.number) +
 							' card-deck-' + (this.props.fourcolor ? 'fourcolor' : 'standard') +
-							' card-' + (this.state.hidden ? 'hidden' : 'visible') +
-							' ' + (this.props.minimalstyle ? 'card-style-minimal' : 'card-style-full') +
+							' card-' + this.getVisibilityStyle() +
 							' ' + (Card.isFaceCard(this.props.number) ? 'card-style-face' : 'card-style-number')
-			}>
+			} onClick={()=>{this.props.onClickCallback();}}>
 				<div className='card-label card-label-top card-label-left'>
 					{Card.toNumLetter(this.props.number)}<br/>
 					{Card.toSuitLetter(this.props.number)}
@@ -90,18 +94,16 @@ class Card extends Component {
 
 Card.defaultProps = {
 	size: 'poker',
-	minimalstyle: true,
 	number: 0,
 	fourcolor: false,
-	hidden: false
+	onClickCallback: ()=>{console.log('Clickety-click!');}
 };
 
 Card.propTypes = {
 	size: PropTypes.string,
-	minimalstyle: PropTypes.bool,
 	number: PropTypes.number,
 	fourcolor: PropTypes.bool,
-	hidden: PropTypes.bool
+	onClickCallback: PropTypes.func
 };
 
 export default Card;
