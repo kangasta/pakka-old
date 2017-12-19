@@ -31,14 +31,15 @@ class Card extends Component {
 		return (
 			<div className={'card' + this.getClasses()
 			} onClick={()=>{this.props.onClickCallback();}}>
-				<div className='card-label card-label-top card-label-left'>
-					{CardUtils.toNumLetter(this.props.number)}<br/>
-					{CardUtils.toSuitLetter(this.props.number)}
-				</div>
-				<div className='card-label card-label-bottom card-label-right'>
-					{CardUtils.toNumLetter(this.props.number)}<br/>
-					{CardUtils.toSuitLetter(this.props.number)}
-				</div>
+				{[
+					'card-label-top card-label-left',
+					'card-label-bottom card-label-right'
+				].map((a,i) =>
+					<div key={i} className={'card-label ' + a}>
+						{CardUtils.toNumLetter(this.props.number)}<br/>
+						{CardUtils.toSuitLetter(this.props.number)}
+					</div>
+				)}
 				<div className='card-center'>
 					<div className='card-center-graphics'>
 						{/* TODO */}
