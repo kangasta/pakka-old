@@ -17,14 +17,19 @@ class Card extends Component {
 		}
 	}
 
+	getClasses() {
+		return (
+			' card-size-' + (CardUtils.card_sizes.indexOf(this.props.size) !== -1 ? this.props.size : 'poker' ) +
+			' card-suit-' + CardUtils.toSuitName(this.props.number) +
+			' card-deck-' + (this.props.fourcolor ? 'fourcolor' : 'standard') +
+			' card-' + this.getVisibilityStyle() +
+			' card-style-' + (CardUtils.isFaceCard(this.props.number) ? 'face' : 'number')
+		);
+	}
+
 	render() {
 		return (
-			<div className={'card' +
-							' card-size-' + (CardUtils.card_sizes.indexOf(this.props.size) !== -1 ? this.props.size : 'poker' ) +
-							' card-suit-' + CardUtils.toSuitName(this.props.number) +
-							' card-deck-' + (this.props.fourcolor ? 'fourcolor' : 'standard') +
-							' card-' + this.getVisibilityStyle() +
-							' ' + (CardUtils.isFaceCard(this.props.number) ? 'card-style-face' : 'card-style-number')
+			<div className={'card' + this.getClasses()
 			} onClick={()=>{this.props.onClickCallback();}}>
 				<div className='card-label card-label-top card-label-left'>
 					{CardUtils.toNumLetter(this.props.number)}<br/>
