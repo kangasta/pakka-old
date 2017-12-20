@@ -6,46 +6,40 @@ import './Deck.css';
 
 
 class Deck extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			'num_cards': 52*this.props.num_decks
-		};
+	getDeckDepth(max=10) {
+		if (this.props.num_cards === 1 && this.props.top_card >= 0)
+			return 2;
+		if (this.props.num_cards <= 1)
+			return 1;
+		var depth = Math.round((this.props.num_cards) / (this.props.num_decks * 52) * (max - 1) + 0.5) + 1;
+		return depth > max ? max : depth;
 	}
 
-	popCard() {
-		this.setState({'num_cards': this.state.num_cards > 0
-			? this.state.num_cards - 1
-			: this.state.num_cards});
-	}
-
-	getDeckDepth() {
-		if (!this.state.num_cards) return 0;
-		var depth = Math.round((this.state.num_cards + 13) / 10);
-		return depth > 6 ? 6 : depth;
+	getCardNumber(is_hidden) {
+		return (this.props.num_cards || this.props.top_card >= 0) ? (is_hidden ? -1 : this.props.top_card) : -2;
 	}
 
 	render() {
 		return (
-			<div className={'deck-boundary'} onClick={() => {this.popCard();}}>
+			<div className={'deck'} onClick={() => {this.props.onClickCallback();}}>
 				{
 					Array(this.getDeckDepth())
 						.fill('1em')
 						.map((cur, i) => {
-							var to_center = this.props.size === 'poker' ? 0.25 : 0.5;
-
 							return (
 								// eslint-disable-next-line
-								<div key={i.toString()}
-									className='deck-card-holder'
+								<div key={i}
+									className='deck-element'
 									style={{
+										zIndex: -i,
+										left: 0,
+										top: 0,
 										position: 'absolute',
-										transform: 'translate(' + (to_center + i/10) + 'em, ' + (to_center + i/10) + 'em)'
+										transform: 'translate(' + (i/10) + 'em, ' + (i/10) + 'em)'
 									}}>
 									<Card size={this.props.size}
-										minimalstyle={this.props.minimalstyle}
 										fourcolor={this.props.fourcolor}
-										hidden={true} />
+										number={this.getCardNumber(i)} />
 								</div>
 							);
 						})
@@ -57,16 +51,20 @@ class Deck extends Component {
 
 Deck.defaultProps = {
 	size: 'poker',
+	num_cards: 52,
 	num_decks: 1,
-	minimalstyle: true,
-	fourcolor: false
+	top_card: -1,
+	fourcolor: false,
+	onClickCallback: ()=>true
 };
 
 Deck.propTypes = {
 	size: PropTypes.string,
+	num_cards: PropTypes.number,
 	num_decks: PropTypes.number,
-	minimalstyle: PropTypes.bool,
-	fourcolor: PropTypes.bool
+	top_card: PropTypes.number,
+	fourcolor: PropTypes.bool,
+	onClickCallback: PropTypes.func
 };
 
 export default Deck;
