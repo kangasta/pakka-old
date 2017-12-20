@@ -8,17 +8,17 @@ node_js:
 
 jobs:
     include:
-      - stage: test
-        script: ./node_modules/.bin/eslint .;
-        script: npm test -- --coverage;
+      - script: ./node_modules/.bin/eslint .;
+      - script: npm test -- --coverage;
       - stage: deploy
         script: npm run build;
-        local_dir: build/
-        provider: pages
-        skip_cleanup: true
-        github_token: $GITHUB_TOKEN
-        on:
-          branch: master
+        deploy:
+          provider: pages
+          local_dir: build/
+          skip_cleanup: true
+          github_token: $GITHUB_TOKEN
+          on:
+            branch: master
 
 
 #after_success:
