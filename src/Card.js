@@ -6,12 +6,18 @@ import CardUtils from './CardUtils';
 import './Card.css';
 
 class Card extends Component {
+	static CARD_HIDDEN = -1;
+	static CARD_EMPTY = -2;
+	static CARD_SHADOW = -3;
+
 	getVisibilityStyle() {
 		switch (this.props.number) {
-		case -1:
+		case Card.CARD_HIDDEN:
 			return 'hidden';
-		case -2:
+		case Card.CARD_EMPTY:
 			return 'empty';
+		case Card.CARD_SHADOW:
+			return 'shadow';
 		default:
 			return 'visible';
 		}

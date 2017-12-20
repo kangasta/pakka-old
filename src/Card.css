@@ -44,6 +44,12 @@
 	background: transparent;
 }
 
+.card.card-shadow {
+	opacity: 0.75;
+	border-color: DarkSlateGray;
+	background: DarkSlateGray;
+}
+
 .card-label {
 	position: absolute;
 	text-align: center;
