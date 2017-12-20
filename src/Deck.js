@@ -6,28 +6,27 @@ import './Deck.css';
 
 
 class Deck extends Component {
-	getDeckDepth(max=10) {
-		if (this.props.num_cards === 1 && this.props.top_card >= 0)
-			return 2;
-		if (this.props.num_cards <= 1)
-			return 1;
-		var depth = Math.round((this.props.num_cards) / (this.props.num_decks * 52) * (max - 1) + 0.5) + 1;
-		return depth > max ? max : depth;
+	getCardNumber(is_shadow) {
+		return (
+			(this.props.num_cards || this.props.top_card >= 0)
+				? (is_shadow ? Card.CARD_SHADOW : this.props.top_card)
+				: Card.CARD_EMPTY);
 	}
 
-	getCardNumber(is_hidden) {
-		return (this.props.num_cards || this.props.top_card >= 0) ? (is_hidden ? -1 : this.props.top_card) : -2;
+	getTranslate(i) {
+		return 'translate(' +
+			(0.5*i/(this.props.num_decks*52)) + 'em , ' +
+			(1.0*i/(this.props.num_decks*52)) + 'em)';
 	}
 
 	render() {
 		return (
 			<div className={'deck'} onClick={() => {this.props.onClickCallback();}}>
 				{
-					Array(this.getDeckDepth())
+					Array((this.props.top_card >= 0 ? this.props.num_cards + 1 : this.props.num_cards) || 1)
 						.fill('1em')
 						.map((cur, i) => {
 							return (
-								// eslint-disable-next-line
 								<div key={i}
 									className='deck-element'
 									style={{
@@ -35,7 +34,7 @@ class Deck extends Component {
 										left: 0,
 										top: 0,
 										position: 'absolute',
-										transform: 'translate(' + (i/10) + 'em, ' + (i/10) + 'em)'
+										transform: this.getTranslate(i)
 									}}>
 									<Card size={this.props.size}
 										fourcolor={this.props.fourcolor}
