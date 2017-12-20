@@ -6,6 +6,7 @@
 	right: 0;
 	top: 0;
 	background: seagreen;
+	font-size: 400%;
 }
 
 .app-center-container {
@@ -17,6 +18,7 @@
 	vertical-align: middle;
 }
 
+/*
 .app-card-container {
 	font-size: 200%;
 }
@@ -24,7 +26,7 @@
 .app-deck-container {
 	font-size: 200%;
 }
-
+*/
 .app-horizontally-center {
 	display:inline-block;
 	padding: 0.5em;
