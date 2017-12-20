@@ -11,18 +11,17 @@
 .card {
 	border-style: solid;
 	border-width: thin;
+	border-color: white  ;
 	border-radius: 0.25em;
 	display: inline-block;
 	position: relative;
 }
 
 .card.card-visible {
-	border-color: DarkSlateGray  ;
 	background: white;
 }
 
 .card.card-hidden {
-	border-color: DarkSlateGray;
 	background:
 		repeating-linear-gradient(
 			60deg,
@@ -40,7 +39,7 @@
 }
 
 .card.card-empty {
-	border-color: DarkSlateGray  ;
+	border-color: DarkSlateGray;
 	background: transparent;
 }
 
