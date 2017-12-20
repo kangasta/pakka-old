@@ -9,9 +9,6 @@
 }
 
 .card {
-	border-style: solid;
-	border-width: thin;
-	border-color: white  ;
 	border-radius: 0.25em;
 	display: inline-block;
 	position: relative;
@@ -40,6 +37,8 @@
 }
 
 .card.card-empty {
+	border-style: solid;
+	border-width: thin;
 	border-color: DarkSlateGray;
 	background: transparent;
 }
