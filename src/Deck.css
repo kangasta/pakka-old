@@ -1,5 +1,7 @@
 .deck {
 	position: relative;
-	width: 6em;
-	height: 8em;
+	width: 5em;
+	height: 7em;
+	margin: 0.5em;
+	margin-bottom: 1em;
 }
