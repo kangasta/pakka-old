@@ -11,7 +11,16 @@ jobs:
       - stage: test
         script: ./node_modules/.bin/eslint .;
         script: npm test -- --coverage;
+      - stage: deploy
+        script: npm run build;
+        local_dir: build/
+        provider: pages
+        skip_cleanup: true
+        github_token: $GITHUB_TOKEN
+        on:
+          branch: master
 
-after_success:
-  - npm install -g codeclimate-test-reporter
+
+#after_success:
+#  - npm install -g codeclimate-test-reporter
 #  - codeclimate-test-reporter < coverage/lcov.info
