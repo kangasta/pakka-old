@@ -20,10 +20,11 @@ class Deck extends Component {
 	}
 
 	render() {
+		const num_elements = 20;
 		return (
 			<div className={'deck'} onClick={() => {this.props.onClickCallback();}}>
 				{
-					Array((this.props.top_card >= 0 ? this.props.num_cards + 1 : this.props.num_cards) || 1)
+					Array(num_elements)
 						.fill('1em')
 						.map((cur, i) => {
 							return (
@@ -34,7 +35,10 @@ class Deck extends Component {
 										left: 0,
 										top: 0,
 										position: 'absolute',
-										transform: this.getTranslate(i)
+										transform: this.getTranslate(
+											i/num_elements*this.props.num_cards
+										),
+										transition: 'transform 0.2s'
 									}}>
 									<Card size={this.props.size}
 										fourcolor={this.props.fourcolor}
