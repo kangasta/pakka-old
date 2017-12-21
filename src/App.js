@@ -46,7 +46,7 @@ class App extends Component {
 
 	render() {
 		return (
-			<div className='App'>
+			<div className='app'>
 				<div className='app-center-container'>
 					<div className='app-deck-container app-horizontally-center'>
 						<Deck
