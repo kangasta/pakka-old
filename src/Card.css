@@ -13,7 +13,6 @@
 	display: inline-block;
 	position: relative;
 	user-select: none;
-	transition: background 0.2s;
 
 	width: var(--card-width);
 	height: var(--card-height);
