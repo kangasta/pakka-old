@@ -1,11 +1,11 @@
 .card-size-bridge {
-	width: 4.5em;
-	height: 7em;
+	--card-width: 4.5em;
+	--card-height: 7em;
 }
 
 .card-size-poker {
-	width: 5em;
-	height: 7em;
+	--card-width: 5em;
+	--card-height: 7em;
 }
 
 .card {
@@ -13,6 +13,12 @@
 	display: inline-block;
 	position: relative;
 	user-select: none;
+	transition: background 0.2s;
+
+	width: var(--card-width);
+	height: var(--card-height);
+
+	--card-border-width: 0.2em;
 }
 
 .card.card-visible {
@@ -20,25 +26,32 @@
 }
 
 .card.card-hidden {
+	width: calc(var(--card-width) - 2 * var(--card-border-width));
+	height: calc(var(--card-height) - 2 * var(--card-border-width));
+	border-style: solid;
+	border-width: var(--card-border-width);
+	border-color: white;
 	background:
 		repeating-linear-gradient(
 			60deg,
 			transparent,
-			transparent 0.33em,
-			white 0.07em,
+			transparent 0.35em,
+			white 0.05em,
 			white 0.4em
 		), repeating-linear-gradient(
 			-60deg,
-			navy,
-			navy 0.33em,
-			white 0.07em,
+			orangered,
+			orangered 0.35em,
+			white 0.05em,
 			white 0.4em
 		);
 }
 
 .card.card-empty {
+	width: calc(var(--card-width) - 2 * var(--card-border-width));
+	height: calc(var(--card-height) - 2 * var(--card-border-width));
 	border-style: solid;
-	border-width: thin;
+	border-width: var(--card-border-width);
 	border-color: DarkSlateGray;
 	background: transparent;
 }
