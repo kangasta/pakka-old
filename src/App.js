@@ -40,6 +40,10 @@ class App extends Component {
 		});
 	}
 
+	componentDidMount() {
+		window.scrollTo(0,1);
+	}
+
 	render() {
 		return (
 			<div className='App'>
