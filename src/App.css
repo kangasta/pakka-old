@@ -16,19 +16,19 @@
 
 @media (min-width: 10em) and (min-height: 14em) {
 	.app {
-		font-size: 200%;
+		font-size: 150%;
 	}
 }
 
 @media (min-width: 15em) and (min-height: 21em) {
 	.app {
-		font-size: 300%;
+		font-size: 200%;
 	}
 }
 
 @media (min-width: 20em) and (min-height: 28em) {
 	.app {
-		font-size: 400%;
+		font-size: 300%;
 	}
 }
 
