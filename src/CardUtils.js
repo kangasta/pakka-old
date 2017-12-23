@@ -1,5 +1,5 @@
 class CardUtils {
-	static suits = ['♠\uFE0E','♣\uFE0E','♥\uFE0E','♦\uFE0E'];
+	static suits = ['♠','♣','♥','♦'];
 	static suit_letters = ['s','c','h','d'];
 	static suit_names = ['spade','club','heart','diamond'];
 	static nums = ['A','2','3','4','5','6','7','8','9','T','J','Q','K'];
