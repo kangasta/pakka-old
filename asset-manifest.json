@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/pakka-old/static/css/main.3a17bc1f.chunk.css",
+    "main.js": "/pakka-old/static/js/main.4f792844.chunk.js",
+    "main.js.map": "/pakka-old/static/js/main.4f792844.chunk.js.map",
+    "runtime-main.js": "/pakka-old/static/js/runtime-main.025a3d0a.js",
+    "runtime-main.js.map": "/pakka-old/static/js/runtime-main.025a3d0a.js.map",
+    "static/js/2.0b428717.chunk.js": "/pakka-old/static/js/2.0b428717.chunk.js",
+    "static/js/2.0b428717.chunk.js.map": "/pakka-old/static/js/2.0b428717.chunk.js.map",
+    "index.html": "/pakka-old/index.html",
+    "precache-manifest.e9d9c932edcc07152ef4151538f2dee2.js": "/pakka-old/precache-manifest.e9d9c932edcc07152ef4151538f2dee2.js",
+    "service-worker.js": "/pakka-old/service-worker.js",
+    "static/css/main.3a17bc1f.chunk.css.map": "/pakka-old/static/css/main.3a17bc1f.chunk.css.map",
+    "static/js/2.0b428717.chunk.js.LICENSE.txt": "/pakka-old/static/js/2.0b428717.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.025a3d0a.js",
+    "static/js/2.0b428717.chunk.js",
+    "static/css/main.3a17bc1f.chunk.css",
+    "static/js/main.4f792844.chunk.js"
+  ]
+}

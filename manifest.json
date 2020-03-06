@@ -1,0 +1,15 @@
+{
+  "short_name": "Pakka",
+  "name": "Pakka",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "./index.html",
+  "display": "fullscreen",
+  "theme_color": "seagreen",
+  "background_color": "seagreen"
+}
