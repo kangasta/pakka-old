@@ -1,17 +1,16 @@
 {
   "name": "pakka",
-  "homepage": "https://kangasta.github.io/pakka",
+  "homepage": "https://kangasta.github.io/pakka-old",
   "version": "0.5.0",
   "private": true,
   "devDependencies": {
     "enzyme": "^3.2.0",
     "enzyme-adapter-react-16": "^1.1.1",
-    "gh-pages": "^1.1.0",
-    "react-scripts": "1.0.17"
+    "react-scripts": "3.4.0"
   },
   "dependencies": {
-    "react": "^16.1.1",
-    "react-dom": "^16.1.1"
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -24,6 +23,18 @@
       "src/*.{js,jsx}",
       "!src/index.js",
       "!src/registerServiceWorker.js"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
     ]
   }
 }

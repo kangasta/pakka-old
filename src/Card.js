@@ -43,7 +43,7 @@ class Card extends Component {
 				].map((a,i) =>
 					<div key={i} className={'card-label ' + a}>
 						{CardUtils.toNumLetter(this.props.number)}<br/>
-						{CardUtils.toSuitLetter(this.props.number)}
+						{CardUtils.toSuitLetter(this.props.number)}&#xFE0E;
 					</div>
 				)}
 				<div className='card-center'>
